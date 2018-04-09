@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head />
+
+	<h:body>
+		<h:form style="padding:50px">
+			<p:growl id="growl" />
+			<p:panel id="pnl" styleClass="mainPnlCss">
+				<h:outputText styleClass="myTitleCss" value="#{i18n['ques-title']}" />
+				<br />
+				<br />
+				<h:outputText styleClass="myTextCss" value="#{i18n['ques-text1']}" />
+				<br />
+				<h:outputText styleClass="myTextCss" value="#{i18n['ques-text2']}" />
+				<br />
+				<h:outputText styleClass="myTextCss" value="#{i18n['ques-text3']}" />
+				<br />
+				<h:outputText styleClass="myTextCss" value="#{i18n['ques-text4']}" />
+				<br />
+				<br />
+				<p:separator style="width:600px" />
+
+				<ui:repeat var="selectRadioSection"
+					value="#{questionAction.quesOptsList}" varStatus="radioCount">
+					<!-- 問題  -->
+					<p:outputLabel styleClass="myTopicCss" for="selects"
+						value="#{selectRadioSection.questions}" />
+					<br />
+					<!-- 答案  -->
+					<p:selectOneRadio id="selects" value="#{selectRadioSection.option}"
+						required="true">
+						<f:selectItems value="#{questionAction.answers}" />
+					</p:selectOneRadio>
+					<br />
+					<div style="width: 550px">
+						<p:message for="selects" />
+					</div>
+					<p:separator style="width:500px" />
+					<br />
+				</ui:repeat>
+
+				<!-- 意見與建議  -->
+				<p:outputLabel styleClass="myTopicCss" for="comment"
+					value="#{i18n['question11']}:" />
+				<br />
+				<br />
+				<p:inputTextarea id="comment" value="#{questionAction.comment}"
+					styleClass="myInputTextCss" />
+				<br />
+				<p:separator style="width:500px" />
+				<br />
+
+				<!-- 基本資料  -->
+				<p:outputLabel styleClass="myBasicInfoCss myMarginCss" for="cName"
+					value="#{i18n['company-name']}:" />
+				<p:inputText id="cName" styleClass="myMarginCss" value="#{questionAction.companyName}"
+					required="true" />
+
+				<p:outputLabel styleClass="myBasicInfoCss myMarginCss" for="cPerson"
+					value="#{i18n['contact-person']}:" />
+				<p:inputText id="cPerson" styleClass="myMarginCss" value="#{questionAction.contactPerson}"
+					required="true" />
+					
+				<div style="width: 400px">
+					<p:message for="cName" />
+				</div>
+				<div style="width: 400px">
+					<p:message for="cPerson" />
+				</div>
+
+				<p:outputLabel styleClass="myBasicInfoCss myMarginCss" for="cMethod"
+					value="#{i18n['contact-method']}:" />
+				<p:inputText id="cMethod" styleClass="myMarginCss" value="#{questionAction.contactMethod}"
+					required="true" />
+
+				<p:outputLabel styleClass="myBasicInfoCss myMarginCss" for="fDate"
+					value="#{i18n['fill-date']}:" />
+				<p:inputText id="fDate" styleClass="myMarginCss" value="#{questionAction.fillDate}"
+					required="true" />
+				<div style="width: 400px">
+					<p:message for="cMethod" />
+				</div>
+				<div style="width: 400px">
+					<p:message for="fDate" />
+				</div>
+                
+                <p:separator style="width:500px" />
+                
+				<!-- button submit -->
+				<h:commandButton styleClass="submitBtnCss"
+					value="#{i18n['submit-button']}" update="pnl,growl" action="page"
+					actionListener="#{questionAction.btnSubmit}" />
+			</p:panel>
+
+			<!-- 彈出視窗  (搭配commandButton update屬性update對應id  還有PF(widgetVar).show())  -->
+			<!-- <p:dialog modal="true" resizable="false" widgetVar="dlg"
+				header="  V a l u e s  " showEffect="clip"
+				style="background:-webkit-linear-gradient(left,#add0ff,#fffdc9,#edd0f4,#ffbb84,#edd0f4,#fffdc9,#add0ff)">
+				<p:panelGrid columns="2" id="display1" columnClasses="label,value">
+
+					<h:outputText value="#{i18n['q1-title']}" />
+					<h:outputText value="#{questionAction.quesOptsList[0].option}" />
+
+					<h:outputText value="#{i18n['q2-title']}" />
+					<h:outputText value="#{questionAction.quesOptsList[1].option}" />
+
+					<h:outputText value="#{i18n['q3-title']}" />
+					<h:outputText value="#{questionAction.quesOptsList[2].option}" />
+
+					<h:outputText value="#{i18n['q4-title']}" />
+					<h:outputText value="#{questionAction.quesOptsList[3].option}" />
+
+					<h:outputText value="#{i18n['q5-title']}" />
+					<h:outputText value="#{questionAction.quesOptsList[4].option}" />
+
+					<h:outputText value="#{i18n['q6-title']}" />
+					<h:outputText value="#{questionAction.quesOptsList[5].option}" />
+
+					<h:outputText value="#{i18n['q7-title']}" />
+					<h:outputText value="#{questionAction.quesOptsList[6].option}" />
+
+					<h:outputText value="#{i18n['q8-title']}" />
+					<h:outputText value="#{questionAction.quesOptsList[7].option}" />
+
+					<h:outputText value="#{i18n['q9-title']}" />
+					<h:outputText value="#{questionAction.quesOptsList[8].option}" />
+
+					<h:outputText value="#{i18n['q10-title']}" />
+					<h:outputText value="#{questionAction.quesOptsList[9].option}" />
+				</p:panelGrid>
+
+				<p:separator style="width:100px" />
+
+				<p:panelGrid columns="2" id="display2" columnClasses="label,value">
+
+					<h:outputText value="#{i18n['your-comment']}" />
+					<h:outputText value="#{questionAction.comment}" />
+
+					<h:outputText value="#{i18n['company-name']}" />
+					<h:outputText value="#{questionAction.companyName}" />
+
+					<h:outputText value="#{i18n['contact-person']}" />
+					<h:outputText value="#{questionAction.contactPerson}" />
+
+					<h:outputText value="#{i18n['contact-method']}" />
+					<h:outputText value="#{questionAction.contactMethod}" />
+
+					<h:outputText value="#{i18n['fill-date']}" />
+					<h:outputText value="#{questionAction.fillDate}" />
+				</p:panelGrid>
+			</p:dialog> -->
+		</h:form>
+	</h:body>
+</f:view>

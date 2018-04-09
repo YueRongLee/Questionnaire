@@ -1,0 +1,41 @@
+.mainPnlCss{
+    border:5px solid #99d4ff !important;
+    background:-webkit-linear-gradient(left,#dddddd,#d3fff6,#bde3ef) !important;
+    padding:150px !important;
+}
+.myTitleCss{
+    font-size:24px !important;
+    color:blue !important;
+    font-weight:bold !important;
+}
+.myTextCss{
+	font-size:16px !important;
+}
+.myTopicCss{
+	font-size:16px !important;
+	font-weight:bold !important;
+	width:500px !important;
+}
+.myInputTextCss{
+	width:450px !important;
+	height:100px !important;
+}
+.myBasicInfoCss{
+    font-size:16px !important;
+	font-weight:bold !important;
+	width:100px !important;
+}
+.submitBtnCss{
+	background-color:blue !important;
+    color:white !important;
+    padding:5px 10px !important;
+    border-radius:8px !important;
+    margin:5px 150px!important;
+}
+.myPageCss{
+	font-size:20px !important;
+	background-color:#dbd0d0 !important;
+}
+.myMarginCss{
+    margin: 5px 100px !important;
+}
