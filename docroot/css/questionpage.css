@@ -1,7 +1,6 @@
 .mainPnlCss{
     border:5px solid #99d4ff !important;
-    background:-webkit-linear-gradient(left,#dddddd,#d3fff6,#bde3ef) !important;
-    padding:150px !important;
+    padding:10% !important;
 }
 .myTitleCss{
     font-size:24px !important;
@@ -14,28 +13,35 @@
 .myTopicCss{
 	font-size:16px !important;
 	font-weight:bold !important;
-	width:500px !important;
+	width:50% !important;
 }
 .myInputTextCss{
-	width:450px !important;
+	width:38% !important;
 	height:100px !important;
 }
 .myBasicInfoCss{
     font-size:16px !important;
 	font-weight:bold !important;
-	width:100px !important;
+	width:50% !important;
 }
 .submitBtnCss{
 	background-color:blue !important;
     color:white !important;
-    padding:5px 10px !important;
+    padding:1% 2% !important;
     border-radius:8px !important;
-    margin:5px 150px!important;
+    margin:1% 15%!important;
 }
 .myPageCss{
 	font-size:20px !important;
 	background-color:#dbd0d0 !important;
 }
 .myMarginCss{
-    margin: 5px 100px !important;
+    margin: 5px 10px !important;
+}
+.arrange{
+    display:grid;
+    grid-template-columns: 25% 25%;
+}
+.inputWidth{
+	width:55% !important;
 }

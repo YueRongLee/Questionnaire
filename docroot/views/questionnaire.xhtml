@@ -9,7 +9,7 @@
 	<h:head />
 
 	<h:body>
-		<h:form style="padding:50px">
+		<h:form style="padding:5%">
 			<p:growl id="growl" />
 			<p:panel id="pnl" styleClass="mainPnlCss">
 				<h:outputText styleClass="myTitleCss" value="#{i18n['ques-title']}" />
@@ -24,7 +24,7 @@
 				<h:outputText styleClass="myTextCss" value="#{i18n['ques-text4']}" />
 				<br />
 				<br />
-				<p:separator style="width:600px" />
+				<p:separator style="width:75%" />
 
 				<ui:repeat var="selectRadioSection"
 					value="#{questionAction.quesOptsList}" varStatus="radioCount">
@@ -38,10 +38,10 @@
 						<f:selectItems value="#{questionAction.answers}" />
 					</p:selectOneRadio>
 					<br />
-					<div style="width: 550px">
+					<div style="width: 70%">
 						<p:message for="selects" />
 					</div>
-					<p:separator style="width:500px" />
+					<p:separator style="width:60%" />
 					<br />
 				</ui:repeat>
 
@@ -53,44 +53,57 @@
 				<p:inputTextarea id="comment" value="#{questionAction.comment}"
 					styleClass="myInputTextCss" />
 				<br />
-				<p:separator style="width:500px" />
+				<p:separator style="width:60%" />
 				<br />
 
 				<!-- 基本資料  -->
-				<p:outputLabel styleClass="myBasicInfoCss myMarginCss" for="cName"
-					value="#{i18n['company-name']}:" />
-				<p:inputText id="cName" styleClass="myMarginCss" value="#{questionAction.companyName}"
-					required="true" />
-
-				<p:outputLabel styleClass="myBasicInfoCss myMarginCss" for="cPerson"
-					value="#{i18n['contact-person']}:" />
-				<p:inputText id="cPerson" styleClass="myMarginCss" value="#{questionAction.contactPerson}"
-					required="true" />
-					
-				<div style="width: 400px">
+				<h:outputText style="font-weight:bold" value="12."/>
+				<div class="arrange">
+				    <div>
+	                    <p:outputLabel styleClass="myBasicInfoCss myMarginCss" for="cName"
+	                        value="#{i18n['company-name']}:" />
+	                    <p:inputText id="cName" styleClass="myMarginCss inputWidth" value="#{questionAction.companyName}"
+	                        required="true" />
+	                </div>
+	                <div>
+	                    <p:outputLabel styleClass="myBasicInfoCss myMarginCss" for="cPerson"
+	                        value="#{i18n['contact-person']}:" />
+	                    <p:inputText id="cPerson" styleClass="myMarginCss inputWidth" value="#{questionAction.contactPerson}"
+	                        required="true" />
+	                </div>
+				</div>
+				<div style="width: 70%">
 					<p:message for="cName" />
 				</div>
-				<div style="width: 400px">
+				<div style="width: 70%">
 					<p:message for="cPerson" />
 				</div>
-
-				<p:outputLabel styleClass="myBasicInfoCss myMarginCss" for="cMethod"
-					value="#{i18n['contact-method']}:" />
-				<p:inputText id="cMethod" styleClass="myMarginCss" value="#{questionAction.contactMethod}"
-					required="true" />
-
-				<p:outputLabel styleClass="myBasicInfoCss myMarginCss" for="fDate"
-					value="#{i18n['fill-date']}:" />
-				<p:inputText id="fDate" styleClass="myMarginCss" value="#{questionAction.fillDate}"
-					required="true" />
-				<div style="width: 400px">
+				
+				
+                <div class="arrange">
+                    <div>
+	                    <p:outputLabel styleClass="myBasicInfoCss myMarginCss" for="cMethod"
+	                        value="#{i18n['contact-method']}:" />
+	                    <p:inputText id="cMethod" styleClass="myMarginCss inputWidth" value="#{questionAction.contactMethod}"
+	                        required="true" />
+                    </div>
+                    
+	               <div>
+		               <p:outputLabel styleClass="myBasicInfoCss myMarginCss" for="fDate"
+	                        value="#{i18n['fill-date']}:" />
+	                    <p:inputText id="fDate" styleClass="myMarginCss inputWidth" value="#{questionAction.fillDate}"
+	                        required="true" />
+	               </div>
+                </div>
+				<div style="width: 70%">
 					<p:message for="cMethod" />
 				</div>
-				<div style="width: 400px">
+				<div style="width: 70%">
 					<p:message for="fDate" />
 				</div>
                 
-                <p:separator style="width:500px" />
+                
+                <p:separator style="width:60%" />
                 
 				<!-- button submit -->
 				<h:commandButton styleClass="submitBtnCss"
